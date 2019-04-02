@@ -24,4 +24,33 @@ class Fazenda extends CI_Controller {
         $this->load->view('pages/fazenda/index');
         $this->load->view('templates/footer');
 	}
+
+	public function add($id = NULL)
+	{
+		if (empty($id)) {
+			$this->load->view('templates/header');
+			$this->load->view('pages/fazenda/add');
+			$this->load->view('templates/footer');
+			return;
+		}
+
+		
+		$this->load->view('templates/header');
+        $this->load->view('pages/fazenda/add');
+        $this->load->view('templates/footer');
+	}
+
+	public function edit()
+	{
+		$this->load->view('templates/header');
+        $this->load->view('pages/fazenda/edit');
+        $this->load->view('templates/footer');
+	}
+
+	public function delete()
+	{
+		$this->load->view('templates/header');
+        $this->load->view('pages/fazenda/delete');
+        $this->load->view('templates/footer');
+	}
 }

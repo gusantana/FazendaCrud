@@ -5,19 +5,19 @@
                 <center><h2>Fazenda Com Mural</h2></center>
             </div>
             <div class="card-body">
-                <a class="btn btn-primary" href="/index.php/fazenda/add" role="button"><i class="fa fa-plus"></i>&nbsp;Adicionar</a>
-                <a class="btn btn-secondary" href="#" role="button"><i class="fa fa-user"></i>&nbsp;&nbsp;Ver Funcionários</a>
+                <a class="btn btn-primary" href="#" role="button"><i class="fa fa-plus"></i>&nbsp;Adicionar</a>
+
                 <br/>
                 <br/>
                 <div class="card-title">
-                   <h5><i class="fas fa-list-ol"></i>&nbsp;&nbsp;Lista de Fazendas</h5>
+                   <h5><i class="fas fa-list-ol"></i>&nbsp;&nbsp;Lista de Funcionários</h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="coluna-centro coluna-6">#</th>
-                                <th scope="col" class="coluna-centro">Nome da fazenda</th>
+                                <th scope="col" class="coluna-centro">Nome do Funcionário</th>
                                 <th scope="col" class="coluna-centro coluna-12">Data Criação</th>
                                 <th scope="col" class="coluna-centro coluna-12">Ações</th>
                             </tr>
