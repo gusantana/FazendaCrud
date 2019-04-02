@@ -30,6 +30,16 @@ class Funcionario extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->view('pages/funcionario/add');
         $this->load->view('templates/footer');
+	}
+	
+	
+    public function edit($id = NULL)
+    {
+		$data["id"] = $id;
+		
+        $this->load->view('templates/header');
+        $this->load->view('pages/funcionario/edit', $data);
+        $this->load->view('templates/footer');
     }
 
     

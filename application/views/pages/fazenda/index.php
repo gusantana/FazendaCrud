@@ -28,8 +28,8 @@
                                 <td>Fazenda 3 Irmãos</td>
                                 <td class="coluna-centro">02/04/2019</td>
                                 <td class="coluna-centro">
-                                    <a class="btn btn-warning btn-sm" href="/index.php/funcionario/edit/1" role="button"><i class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger btn-sm" href="/index.php/funcionario/delete/1" role="button"><i class="far fa-trash-alt"></i></a>
+                                    <a class="btn btn-warning btn-sm" href="/index.php/fazenda/edit/1" role="button"><i class="fas fa-edit"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="/index.php/fazenda/delete/1" role="button"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         </tbody>                
