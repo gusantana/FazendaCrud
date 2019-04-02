@@ -20,33 +20,33 @@ class Funcionario extends CI_Controller {
 	 */
 	public function index()
 	{
-        $this->load->view('templates/header');
-        $this->load->view('pages/funcionario/index');
-        $this->load->view('templates/footer');
-    }
-    
-    public function add()
-    {
-        $this->load->view('templates/header');
-        $this->load->view('pages/funcionario/add');
-        $this->load->view('templates/footer');
+		$this->load->view('templates/header');
+		$this->load->view('pages/funcionario/index');
+		$this->load->view('templates/footer');
+	}
+	
+	public function add()
+	{
+		$this->load->view('templates/header');
+		$this->load->view('pages/funcionario/add');
+		$this->load->view('templates/footer');
 	}
 	
 	
-    public function edit($id = NULL)
-    {
+	public function edit($id = NULL)
+	{
 		$data["id"] = $id;
 		
-        $this->load->view('templates/header');
-        $this->load->view('pages/funcionario/edit', $data);
-        $this->load->view('templates/footer');
-    }
+		$this->load->view('templates/header');
+		$this->load->view('pages/funcionario/edit', $data);
+		$this->load->view('templates/footer');
+	}
 
-    
-    public function visualizar()
-    {
-        $this->load->view('templates/header');
-        $this->load->view('pages/funcionario/visualizar');
-        $this->load->view('templates/footer');
-    }
+	
+	public function visualizar()
+	{
+		$this->load->view('templates/header');
+		$this->load->view('pages/funcionario/visualizar');
+		$this->load->view('templates/footer');
+	}
 }
