@@ -31,4 +31,12 @@ class Funcionario extends CI_Controller {
         $this->load->view('pages/funcionario/add');
         $this->load->view('templates/footer');
     }
+
+    
+    public function visualizar()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('pages/funcionario/visualizar');
+        $this->load->view('templates/footer');
+    }
 }
