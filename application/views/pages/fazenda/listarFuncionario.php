@@ -2,11 +2,14 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="card">
             <div class="card-header">
-                <center><h2>Fazenda Com Mural</h2></center>
+                <center><h2><?php echo $fazenda->nome; ?></h2></center>
             </div>
             <div class="card-body">
                 <a class="btn btn-outline-secondary" href="/index.php/fazenda/index" role="button"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Voltar</a> 
-                <a class="btn btn-primary" href="/index.php/funcionario/add" role="button"><i class="fa fa-plus"></i>&nbsp;Adicionar</a>
+                <?php 
+                    $linkAdicionarFuncionario = "/index.php/funcionario/add/".$fazenda->id;
+                ?>
+                <a class="btn btn-primary" href=<?php echo $linkAdicionarFuncionario; ?> role="button"><i class="fa fa-plus"></i>&nbsp;Adicionar Funcionário</a>
 
                 <br/>
                 <br/>
@@ -19,8 +22,7 @@
                             <tr>
                                 <th scope="col" class="coluna-centro coluna-6">#</th>
                                 <th scope="col" class="coluna-centro">Nome do Funcionário</th>
-                                <th scope="col" class="coluna-centro">Nome da Fazenda</th>
-                                <th scope="col" class="coluna-centro coluna-12">Data Criação</th>
+                                <th scope="col" class="coluna-centro coluna-18">Data Criação</th>
                                 <th scope="col" class="coluna-centro coluna-18">Ações</th>
                             </tr>
                         </thead>
@@ -33,7 +35,6 @@
                                 </tr>
                                 <?php
                             }
-                            var_dump($dados);
                             foreach($dados as $indice => $linha) {
                             ?>
                             <tr>
@@ -42,11 +43,9 @@
                                     $link_editar = '/index.php/funcionario/edit/'.$linha->id;
                                     $link_excluir = '/index.php/funcionario/delete/'.$linha->id;
                                 ?>
-                                <td class="coluna-centro"><?php echo $linha->id ?></td>
+                                <td class="coluna-centro"><?php echo $indice+1; ?></td>
                                 <td>
-                                   
                                     <a href=""><?php echo $linha->nome ?></a></td>
-                                <td class="coluna-centro">Fazenda 3 Irmãos</td>
                                 <td class="coluna-centro"><?php echo $linha->dataRegistro ?></td>
                                 <td class="coluna-centro ">
                                     <a class="btn btn-success btn-sm" href="<?php echo $link_visualizar ?>" role="button"><i class="fa fa-eye"></i></a>

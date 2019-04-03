@@ -9,21 +9,20 @@
                 <a class="btn btn-outline-primary" href="/index.php/funcionario/index" role="button"><i class="fa fa-user"></i>&nbsp;&nbsp;Lista de Funcionários</a>
                 <br/><br/>
                 <div class="card-title">
-                   <h5>Adicionar Funcionário</h5>
+                   <h5>Editar Funcionário</h5>
                 </div>
-                <br/>
+                
+                <?php 
+                    if (!empty($mensagem)) {
+                        print ($mensagem);
+                    }
+                ?>
+                
+                <?php echo validation_errors(); ?>
+
                 <form id="form" action="/index.php/fazenda/edit" method="post">
                     <input type="hidden" name="id" value="<?php echo($id) ?>" >
 
-                    <div class="form-group">
-                        <label for="nome">Nome da Fazenda:</label>
-                        <select name="id_fazenda" class="form-control">
-                            <option value="1">Fazenda 1</option>
-                            <option value="2">Fazenda 2</option>
-                            <option value="3">Fazenda 3</option>
-                            <option value="4">Fazenda 4</option>
-                        </select>
-                    </div>
                     <div class="form-group">
                         <label for="nome">Nome do Funcionário:</label>
                         <input type="text" id="nome" name="nome" class="form-control">

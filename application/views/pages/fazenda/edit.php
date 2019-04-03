@@ -13,9 +13,22 @@
                 <br/>
                 <form action="/index.php/fazenda/edit" method="post">
 
+                    <?php if (!empty($mensagem)) {
+                        ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <?php
+                                echo ($mensagem);
+                            ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <?php
+                    }?>
+                    <input type="hidden" value="<?php echo $dados->id; ?>" name="id">
                     <div class="form-group">
                         <label for="nome">Nome da Fazenda</label>
-                        <input type="text" id="nome" name="nome" class="form-control">
+                        <input type="text" id="nome" name="nome" class="form-control" value="<?php echo $dados->nome ?>">
                     </div>
                     <button class="btn btn-success" type="submit"><i class="fa fa-save"></i>&nbsp;&nbsp;Salvar</a>
                 </form>

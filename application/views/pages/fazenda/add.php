@@ -13,7 +13,16 @@
                 
                 <?php echo validation_errors(); ?>
                 <?php if (!empty($mensagem)) {
-                    echo ($mensagem);
+                    ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?php
+                            echo ($mensagem);
+                        ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <?php
                 }?>
 
                 <br/>

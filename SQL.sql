@@ -20,6 +20,7 @@ create table funcionario
 	nome varchar(300) not null,
 	mensagem1 varchar(300) null,
 	mensagem2 varchar(300) null,
+	foto varchar(300) not null,
 	situacao varchar(8) not null,
 	dataRegistro datetime not null,
 	constraint funcionario_fazenda_id_fk
