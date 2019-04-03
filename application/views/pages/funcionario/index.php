@@ -6,8 +6,7 @@
             </div>
             <div class="card-body">
                 <a class="btn btn-outline-secondary" href="/index.php/fazenda/index" role="button"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Voltar</a> 
-                <a class="btn btn-primary" href="/index.php/funcionario/add" role="button"><i class="fa fa-plus"></i>&nbsp;Adicionar</a>
-
+                
                 <br/>
                 <br/>
                 <div class="card-title">
@@ -33,7 +32,6 @@
                                 </tr>
                                 <?php
                             }
-                            var_dump($dados);
                             foreach($dados as $indice => $linha) {
                             ?>
                             <tr>
@@ -42,7 +40,7 @@
                                     $link_editar = '/index.php/funcionario/edit/'.$linha->id;
                                     $link_excluir = '/index.php/funcionario/delete/'.$linha->id;
                                 ?>
-                                <td class="coluna-centro"><?= $linha->id ?></td>
+                                <td class="coluna-centro"><?= $indice+1 ?></td>
                                 <td>
                                     <a href=""><?= $linha->nome ?></a>
                                 </td>
