@@ -32,8 +32,6 @@
                     </div>
                     <button class="btn btn-success" type="submit"><i class="fa fa-save"></i>&nbsp;&nbsp;Salvar</a>
                 </form>
-                
-                
             </div>
         </div>
     </div>

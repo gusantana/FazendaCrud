@@ -45,7 +45,7 @@
                                 ?>
                                 <td class="coluna-centro"><?php echo $indice+1; ?></td>
                                 <td>
-                                    <a href=""><?php echo $linha->nome ?></a></td>
+                                    <a href="<?php echo $link_visualizar ?>"><?php echo $linha->nome ?></a></td>
                                 <td class="coluna-centro"><?php echo $linha->dataRegistro ?></td>
                                 <td class="coluna-centro ">
                                     <a class="btn btn-success btn-sm" href="<?php echo $link_visualizar ?>" role="button"><i class="fa fa-eye"></i></a>

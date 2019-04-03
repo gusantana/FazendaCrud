@@ -34,15 +34,15 @@
                             foreach($dados as $indice => $linha) {
                                 ?>
                                 <tr>
+                                    <?php 
+                                        $link_listarFuncionarios = "/index.php/fazenda/listarFuncionario/".$linha->id;
+                                        $link_edicao = "/index.php/fazenda/edit/".$linha->id;
+                                        $link_remocao = "/index.php/fazenda/delete/".$linha->id;
+                                    ?>
                                     <td class="coluna-centro"><?php echo (int)$indice + 1 ?></td>
-                                    <td class=""><?php echo $linha->nome ?>
+                                    <td class=""><a href="<?php echo $link_listarFuncionarios ?>"><?php echo $linha->nome ?></td>
                                     <td class="coluna-centro"><?php echo $linha->dataRegistro ?>
                                     <td class="coluna-centro">
-                                        <?php 
-                                            $link_listarFuncionarios = "/index.php/fazenda/listarFuncionario/".$linha->id;
-                                            $link_edicao = "/index.php/fazenda/edit/".$linha->id;
-                                            $link_remocao = "/index.php/fazenda/delete/".$linha->id;
-                                        ?>
                                         <a class="btn btn-primary btn-sm" href="<?php echo $link_listarFuncionarios ?>" role="button"><i class="fa fa-users"></i></a>
                                         <a class="btn btn-warning btn-sm" href="<?php echo $link_edicao ?>" role="button"><i class="fas fa-edit"></i></a>
                                         <a class="btn btn-danger btn-sm" href="<?php echo $link_remocao ?>" role="button"><i class="far fa-trash-alt"></i></a>

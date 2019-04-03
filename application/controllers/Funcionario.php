@@ -18,6 +18,7 @@ class Funcionario extends CI_Controller {
 		$this->load->library('upload', $config);
 
 		$this->load->database();
+
 	}
 
 
@@ -35,27 +36,6 @@ class Funcionario extends CI_Controller {
 		$this->db->where('id', $idFazenda);
 		$data['fazenda'] = $this->db->get('fazenda')->result()[0];
 
-		$config = array(
-			array(
-				'field' => 'idFazenda',
-				'label' => 'Nome da Fazenda',
-				'rules' => 'required',
-				'errors' => array (
-					'required' => 'Deve ser fornecido um %s.'
-				)
-			),
-			array(
-				'field' => 'nome',
-				'label' => 'Nome do Funcionário',
-				'rules' => 'required',
-				'errors' => array (
-					'required' => 'Deve ser fornecido um %s.'
-				)
-			)
-		);
-
-		$this->form_validation->set_rules($config);
-		
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('templates/header');
 			$this->load->view('pages/funcionario/add', $data);
@@ -93,19 +73,87 @@ class Funcionario extends CI_Controller {
 	
 	public function edit($id = NULL)
 	{
-		$data["id"] = $id;
+		$config = array(
+			array(
+				'field' => 'nome',
+				'label' => 'Nome do Funcionário',
+				'rules' => 'required',
+				'errors' => array (
+					'required' => 'Deve ser fornecido um %s.'
+				)
+			)
+		);
+
+		$this->form_validation->set_rules($config);
+
+		if (empty($id)) {
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('templates/header');
+				$this->load->view('pages/funcionario/edit', $data);
+				$this->load->view('templates/footer');
+				return;
+			}
+
+			$dados = array (
+				'nome' => $this->input->post('nome'),
+				'mensagem1' => $this->input->post('mensagem1'),
+				'mensagem2' => $this->input->post('mensagem2'),
+				'situacao' => 'ATIVO'
+			);
+	
+			$this->db->update('funcionario', $dados, array('id' => $this->input->post('id')));
+	
+			$where = array('id' => $this->input->post('id'));
+			
+			$this->db->where($where);
+			$data['dados'] = $this->db->get('funcionario')->result()[0];
+
+			$this->db->where('id', $data['dados']->idFazenda);
+			$data['fazenda'] = $this->db->get('fazenda')->result()[0];
+	
+			$data['mensagem'] = "Registro alterado com sucesso.";
+	
+			$this->load->view('templates/header');
+			$this->load->view('pages/funcionario/edit', $data);
+			$this->load->view('templates/footer');
+
+			return;
+		}
+
+		$where = array ('id' => $id);
+		$this->db->where($where);
+		$data['dados'] = $this->db->get('funcionario')->result()[0];
 		
-		
-		$this->load->view('templates/header');
-		$this->load->view('pages/funcionario/edit', $data);
-		$this->load->view('templates/footer');
+		$this->db->where('id', $data['dados']->idFazenda);
+		$data['fazenda'] = $this->db->get('fazenda')->result()[0];
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header');
+			$this->load->view('pages/funcionario/edit', $data);
+			$this->load->view('templates/footer');
+			return;
+		}
 	}
 
 	
-	public function visualizar()
+	public function visualizar($id = NULL)
 	{
+		$where = array('id' => $id);
+		$this->db->where($where);
+		$data['dados'] = $this->db->get('funcionario')->result()[0];
+
+		$where = array('id' => $data['dados']->idFazenda);
+		$this->db->where($where);
+		$data['fazenda'] = $this->db->get('fazenda')->result()[0];
+
 		$this->load->view('templates/header');
-		$this->load->view('pages/funcionario/visualizar');
+		$this->load->view('pages/funcionario/visualizar', $data);
 		$this->load->view('templates/footer');
+	}
+
+
+	public function delete($id = NULL)
+	{
+
 	}
 }

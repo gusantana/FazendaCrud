@@ -166,7 +166,7 @@ class Fazenda extends CI_Controller {
 		$where = array('id' => $id);
 		$this->db->where($where);
 		$this->db->delete('fazenda');
-
+		
 		redirect('fazenda/index');
 		
 	}
