@@ -5,7 +5,7 @@ class Funcionario extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper(array('form', 'url', 'file'));
 
 		$this->load->library('form_validation');
 
@@ -154,6 +154,22 @@ class Funcionario extends CI_Controller {
 
 	public function delete($id = NULL)
 	{
+		$where = array('id' => $id);
+		$this->db->where($where);
+		$data['dados'] = $this->db->get('funcionario')->result()[0];
 
+		$foto = $data['dados']->foto;
+		echo $_SERVER['DOCUMENT_ROOT'].'/upload/'.$foto;
+		delete_files($_SERVER['DOCUMENT_ROOT'].'//upload//'.$foto, false);
+		$this->db->where($where);
+		$this->db->delete('funcionario');
+		
+		redirect('fazenda/listarFuncionario/'.$data['dados']->idFazenda);
+		/*
+		$this->load->view('templates/header');
+		$this->load->view('pages/fazenda/listarFuncionario', $data);
+		$this->load->view('templates/footer');
+		*/
+		//return;
 	}
 }

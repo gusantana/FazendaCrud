@@ -5,7 +5,7 @@
                 <center><h2><?php echo $fazenda->nome; ?></h2></center>
             </div>
             <div class="card-body">
-                <a class="btn btn-outline-secondary" href="/index.php/fazenda/listarFuncionario/<?php echo $fazenda->id ?>" role="button"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Voltar</a>
+                <a class="btn btn-outline-secondary" href="/index.php/fazenda/listarFuncionario/<?=$fazenda->id?>" role="button"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Voltar</a>
                 
                 <br/><br/>
                 <div class="card-title">

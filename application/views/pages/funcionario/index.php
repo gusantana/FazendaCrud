@@ -42,16 +42,16 @@
                                     $link_editar = '/index.php/funcionario/edit/'.$linha->id;
                                     $link_excluir = '/index.php/funcionario/delete/'.$linha->id;
                                 ?>
-                                <td class="coluna-centro"><?php echo $linha->id ?></td>
+                                <td class="coluna-centro"><?= $linha->id ?></td>
                                 <td>
-                                   
-                                    <a href=""><?php echo $linha->nome ?></a></td>
+                                    <a href=""><?= $linha->nome ?></a>
+                                </td>
                                 <td class="coluna-centro">Fazenda 3 Irmãos</td>
-                                <td class="coluna-centro"><?php echo $linha->dataRegistro ?></td>
+                                <td class="coluna-centro"><?= $linha->dataRegistro ?></td>
                                 <td class="coluna-centro ">
-                                    <a class="btn btn-success btn-sm" href="<?php echo $link_visualizar ?>" role="button"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-warning btn-sm" href="<?php echo $link_editar ?>" role="button"><i class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger btn-sm" href="<?php echo $link_excluir ?>" role="button"><i class="far fa-trash-alt"></i></a>
+                                    <a class="btn btn-success btn-sm" href="<?= $link_visualizar ?>" role="button"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-warning btn-sm" href="<?= $link_editar ?>" role="button"><i class="fas fa-edit"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="<?= $link_excluir ?>" role="button"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             <?php
