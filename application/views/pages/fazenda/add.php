@@ -10,6 +10,12 @@
                 <div class="card-title">
                    <h5>Adicionar Fazenda</h5>
                 </div>
+                
+                <?php echo validation_errors(); ?>
+                <?php if (!empty($mensagem)) {
+                    echo ($mensagem);
+                }?>
+
                 <br/>
                 <form action="/index.php/fazenda/add" method="post">
                     <div class="form-group">

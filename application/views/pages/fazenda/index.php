@@ -23,7 +23,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                        <?php
+                        var_dump($dados);
+                            foreach($dados as $indice => $linha) {
+                                ?>
+                                <tr>
+                                    <td class="coluna-centro"><?php echo (int)$indice + 1 ?></td>
+                                    <td class=""><?php echo $linha->nome ?>
+                                    <td class="coluna-centro"><?php echo $linha->dataRegistro ?>
+                                    <td class="coluna-centro">
+                                        <?php 
+                                            $link_edicao = "/index.php/fazenda/edit/"+$linha->id;
+                                            $link_remocao = "/index.php/fazenda/delete/"+$linha->id;
+                                        ?>
+                                        <a class="btn btn-warning btn-sm" href="/index.php/fazenda/edit/1" role="button"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-danger btn-sm" href="/index.php/fazenda/delete/1" role="button"><i class="far fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                        ?>
+                            <!-- <tr>
                                 <td class="coluna-centro">1</td>
                                 <td>Fazenda 3 Irmãos</td>
                                 <td class="coluna-centro">02/04/2019</td>
@@ -31,7 +51,7 @@
                                     <a class="btn btn-warning btn-sm" href="/index.php/fazenda/edit/1" role="button"><i class="fas fa-edit"></i></a>
                                     <a class="btn btn-danger btn-sm" href="/index.php/fazenda/delete/1" role="button"><i class="far fa-trash-alt"></i></a>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>                
                     </table>
                 </div>

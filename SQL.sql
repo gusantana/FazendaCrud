@@ -4,7 +4,7 @@ create table fazenda
 	id int auto_increment
 		primary key,
 	nome varchar(300) not null,
-	dataRegistro date not null,
+	dataRegistro datetime not null,
 	situacao varchar(8) not null
 )
 engine=InnoDB;
@@ -21,7 +21,7 @@ create table funcionario
 	mensagem1 varchar(300) null,
 	mensagem2 varchar(300) null,
 	situacao varchar(8) not null,
-	dataRegistro date not null,
+	dataRegistro datetime not null,
 	constraint funcionario_fazenda_id_fk
 		foreign key (idFazenda) references fazenda (id)
 )
@@ -40,8 +40,9 @@ create table arquivo
 	mimeType varchar(300) not null,
 	fileName int not null,
 	tipoArquivo int not null,
-	dataRegistro date not null
-);
+	dataRegistro datetime not null
+)
+engine=InnoDB;
 
 create index arquivo_funcionario_id_fk
 	on arquivo (idFuncionario);
