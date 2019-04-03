@@ -36,6 +36,19 @@ class Funcionario extends CI_Controller {
 		$this->db->where('id', $idFazenda);
 		$data['fazenda'] = $this->db->get('fazenda')->result()[0];
 
+		$config = array(
+			array(
+				'field' => 'nome',
+				'label' => 'Nome do Funcionário',
+				'rules' => 'required',
+				'errors' => array (
+					'required' => 'Deve ser fornecido um %s.'
+				)
+			)
+		);
+		
+		$this->form_validation->set_rules($config);
+
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('templates/header');
 			$this->load->view('pages/funcionario/add', $data);
@@ -159,17 +172,10 @@ class Funcionario extends CI_Controller {
 		$data['dados'] = $this->db->get('funcionario')->result()[0];
 
 		$foto = $data['dados']->foto;
-		echo $_SERVER['DOCUMENT_ROOT'].'/upload/'.$foto;
-		delete_files($_SERVER['DOCUMENT_ROOT'].'//upload//'.$foto, false);
-		$this->db->where($where);
-		$this->db->delete('funcionario');
-		
+		if (unlink($_SERVER['DOCUMENT_ROOT'].'/upload/'.$foto)) {
+			$this->db->where($where);
+			$this->db->delete('funcionario');
+		}
 		redirect('fazenda/listarFuncionario/'.$data['dados']->idFazenda);
-		/*
-		$this->load->view('templates/header');
-		$this->load->view('pages/fazenda/listarFuncionario', $data);
-		$this->load->view('templates/footer');
-		*/
-		//return;
 	}
 }
